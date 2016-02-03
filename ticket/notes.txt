@@ -1,0 +1,39 @@
+
+
+. análise foi feita sobre o PDF e o site atual (www.ticket.com.br)
+
+. resolução máxima da página em 1280px;
+
+. Central de vendas e central de atendimento deveria ficar no topo? (numa localização mais modesta, estes deveriam ir para o footer. 
+Ou até ficar numa área de difícil acesso. Se o site for eficiente em exibir as informações e serviços, evitar essa informação é interessante pois não sobrecarrega as centrais de atendimento - mantive esses menus mantendo o layout existente).
+
+. o item de menu "Login" ficou no lado direito. É um botão muito comum e se destaca melhor no canto. Também foi colocado um dropdown onde o usuário clica na opçção para  na tela irde login correspondente.
+
+. o menu "compre agora, produtos tickets, meus objetivos..." aparece também em dispositivos médios (ver imagens enviadas). Hoje está sendo oculto.
+
+. está responsivo para dispositivos celulares, tablets e afins, desktops médios e desktops com resolução máxima até 1280.
+
+. detalhe técnico: muitos ícones agora estão em vetores escaláveis. Mais prático. (desculpe, não encontrei o logo novo do Google+ e do chat similar ao existente...)
+
+. técnico: layout 100% bootstrap. Para a montagem dessa tela, não foi necessário usar algum javascript
+
+. "Produtos Ticket" não é recomendável abrir com drop drow gigante hoje existente. Dependendo do dispositivo essa tela não abre direito. Um mapa do site bem organizado ajuda muito ou talvez esse link "Produtos Ticket" devesse ter uma nova página que melhor oriente o usuário pela enorme quantidade de informações.
+
+. o topo está fixo agora, sem um "flick" que existe hoje em produção. em dispositivos menores, foi diminuído a altura para um melhor visibilidade do site. Uma outra sugestão é deixar o topo rolar também, para uma melhor visualização das informações.
+
+. no footer, como sugestão, seria interessante colocar o texto de Direitos Autorais e dados da empresa (hoje, existe uma lei de e-commerce que os sites precisam colocar os dados da empresa nas páginas - ver Submarino, Uol, Americanas, Netshoes).
+
+- ainda no footer, para dispositivos menores está sendo exibida todas as informações de dispositivos menores. Fechar com a área de negócios o que deve ser exibido e omitido em dispositivos menores é interessante para dar um clean e até para deixar a página mais leve nesses dispositivos.
+
+. "Outros Produtos Ticket" também pode ser exibido em dispositivos tablet e celulares com um carrossel e não uma barra de rolagem (não implementado). O seu uso ou não é muito relativo. Se existir muitos produtos, talvez não seja interessante usar um carrossel indexado (com botões embaixo). O ideal é quando exister um número limitado de produos. Se houver muitos produtos para serem exibidos, talvez a barra de rolagem horizontal seja de bom uso.
+
+
+
+* . os tipos fontes e seus tamanhos não estão fiéis ao PDF (existiram fontes que não foram possíveis de reconhecer ou não foram encontrados no site)
+* . desconsiderar algumas cores - algumas foram verificadas no site, mas outras através do conta gotas do Photoshop no PDF
+* . para fazer uma tela, geralmente ela é montada de um PSD geralmente criado por um designer. As telas montadas ficam muito parecidas com o PSD.
+
+
+
+
+
