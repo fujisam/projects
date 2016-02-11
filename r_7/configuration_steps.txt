@@ -1,0 +1,8 @@
+
+(1) yo backbone fazenda
+(2) yo backbone:all fazenda
+(3) bower install --save https://google-fonts.azurewebsites.net/googleFonts/montserrat?family=Montserrat
+	- adjust path in html file
+
+
+
