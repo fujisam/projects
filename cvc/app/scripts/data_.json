@@ -1,0 +1,99 @@
+[
+  {
+    "id": "1",
+    "name": "Carro econômico com ar",
+    "taxCode": "ifmr",
+    "availableCars": "CHEVROLET CELTA, FORD FIESTA, VW GOL, FIAT PALIO OU SIMILAR",
+    "image": "car-1.jpg",
+    "moreData": [
+      "Quilometragem livre",
+      "Seguro total do veículo",
+      "Seguro a terceiros",
+      "Taxas de serviços inclusas"
+    ],
+    "details": "Super inclusive promocional - Km livre, seguro total do veículo (LDW), seguro a terceiros (SLI), taxas de serviços inclusas e 1 motorista adicional.",
+    "features": {
+      "numberDoors": "4 portas",
+      "capacity": "5 pessoas",
+      "trunk": "3 malas",
+      "air": "Ar-condicionado",
+      "gearChange": "Automático",
+      "steeringWheel": "Direção Hidráulica",
+      "windowType": "Vidro elétrico",
+      "carMusic": "CD ou USB",
+      "carAudio": "Rádio AM/FM"
+    },
+    "favorite": true,
+    "rentalAgency": "budget",
+    "carDiscount": "20%",
+    "price": "938",
+    "discountPrice": "838",
+    "numberInstallments": "10"
+  },
+
+
+  {
+    "id": "1",
+    "name": "Carro econômico com ar",
+    "taxCode": "ifmr",
+    "availableCars": "CHEVROLET CELTA, FORD FIESTA, VW GOL, FIAT PALIO OU SIMILAR",
+    "image": "car-2.jpg",
+    "moreData": [
+      "Quilometragem livre",
+      "Seguro total do veículo",
+      "Seguro a terceiros",
+      "Taxas de serviços inclusas"
+    ],
+    "details": "Super inclusive promocional - Km livre, seguro total do veículo (LDW), seguro a terceiros (SLI), taxas de serviços inclusas e 1 motorista adicional.",
+    "features": {
+      "numberDoors": "4 portas",
+      "capacity": "5 pessoas",
+      "trunk": "3 malas",
+      "air": "Ar-condicionado",
+      "gearChange": "Automático",
+      "steeringWheel": "Direção Hidráulica",
+      "windowType": "Vidro elétrico",
+      "carMusic": "CD ou USB",
+      "carAudio": "Rádio AM/FM"
+    },
+    "favorite": true,
+    "rentalAgency": "hertz",
+    "carDiscount": "",
+    "price": "1258",
+    "discountPrice": "",
+    "numberInstallments": "10"
+  },
+  {
+    "id": "1",
+    "name": "Carro econômico com ar",
+    "taxCode": "cxmr",
+    "availableCars": "CHEVROLET CELTA, FORD FIESTA, VW GOL, FIAT PALIO OU SIMILAR",
+    "image": "car-2.jpg",
+    "moreData": [
+      "Quilometragem livre",
+      "Seguro total do veículo",
+      "Seguro a terceiros",
+      "Taxas de serviços inclusas"
+    ],
+    "details": "Super inclusive promocional - Km livre, seguro total do veículo (LDW), seguro a terceiros (SLI), taxas de serviços inclusas e 1 motorista adicional.",
+    "features": {
+      "numberDoors": "2 portas",
+      "capacity": "5 pessoas",
+      "trunk": "3 malas",
+      "air": "",
+      "gearChange": "Automático",
+      "steeringWheel": "Direção Hidráulica",
+      "windowType": "Vidro elétrico",
+      "carMusic": "CD",
+      "carAudio": "Bluetooth Interne"
+    },
+    "favorite": false,
+    "rentalAgency": "hertz",
+    "carDiscount": "35%",
+    "price": "1000",
+    "discountPrice": "650",
+    "numberInstallments": "10"
+  }
+]
+
+

@@ -1,0 +1,275 @@
+<div class="row adjust-top">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-container">
+        <div class="form">
+            <div class="form-group">
+                <label> Local de retirada </label>
+                <select class="form-control"
+                        ng-model="rentalPlace"
+                        id="rentalPlace">
+                    <option value="1">São Paulo - SP / BR, Brasil,</option>
+                    <option value="5">Campinas - SP / BR, Brasil,</option>
+                    <option value="2">Rio de Janeiro - RJ / BR, Brasil,</option>
+                    <option value="3">Belo Horizonte - MG / BR, Brasil,</option>
+                    <option value="4">Porto Alegre - RS / BR, Brasil,</option>
+                </select>
+                <div class="checkbox">
+                    <label for="give-back" class="blue">
+                        <input type="checkbox" id="give-back"><span class="transform-normal strong">Devolver o carro em outro local</span>
+                    </label>
+                </div>
+                <label> Local de devolução </label>
+                <select class="form-control"
+                        ng-model="returnPlace"
+                        id="returnPlace">
+                    <option value="4">Porto Alegre - RS / BR, Brasil,</option>
+                    <option value="3">Belo Horizonte - MG / BR, Brasil,</option>
+                    <option value="2">Rio de Janeiro - RJ / BR, Brasil,</option>
+                    <option value="5">Campinas - SP / BR, Brasil,</option>
+                    <option value="1"> São Paulo - SP / BR, Brasil,</option>
+                </select>
+                <label> Retirada </label>
+                <div class="elements-inline">
+                    <input type="text" class="input-small" placeholder="30/06/2016">
+                    <span class="calendar"></span> <span> &#124; </span>
+                    <select class="form-control">
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option selected>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                    </select>
+                </div>
+                <label> Devolução 8 dia(s) </label>
+                <div class="elements-inline">
+                    <input type="text" class="input-small" placeholder="30/06/2016">
+                    <span class="calendar"></span> <span> | </span>
+                    <select class="form-control">
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option selected>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                    </select>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading uppercase">Economize até 35%</div>
+                    <div class="panel-body form-inline">
+                        <label for="include-flight" class="blue">
+                            <input type="checkbox" id="include-flight"> <span class="transform-normal">Incluir voo</span>
+                        </label>
+                        <label for="include-hotel" class="blue">
+                            <input type="checkbox" id="include-hotel"><span
+                                class="transform-normal">Incluir hotel</span>
+                        </label>
+                    </div>
+                </div>
+                <button ng-click="findCarsByPlaces();" type="button" class="btn btn-default form-button">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 car-data-container">
+        <div class="car">
+            <div class="row filter">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row elements-inline">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-inline">
+                                <label> Items por página </label>
+                                <select ng-model="itemsPerPage"
+                                        id="itemsPerPage"
+                                        ng-change="setItemsPerPage(itemsPerPage);"
+                                        class="itemsPerPage form-control">
+                                    <option value="3">3</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="form-inline">
+                                <label> Ordenar por </label>
+                                <select ng-model="priceOrder" id="priceOrder" class="priceOrder form-control" ng-change="filterPriceOrder();">
+                                    <option value="0">Sem filtro</option>
+                                    <option value="1">Menor preço</option>
+                                    <option value="2">Maior preço</option>
+                                </select>
+                            </div>
+                            <div class="form-inline">
+                                <label> Moeda </label>
+                                <select ng-model="currency"
+                                        id="currency"
+                                        class="currency form-control"
+                                        ng-change="filterCurrency();">
+                                    <option value="0">Todas</option>
+                                    <option value="1">Real</option>
+                                    <option value="2">Dólar</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row car-data"
+                 ng-repeat="dataCar in data.slice(((currentPage - 1) * itemsPerPage), ((currentPage) * itemsPerPage))">
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 left-data">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 show-car-image">
+                            <div ng-show="dataCar.carDiscount != '';"
+                                 class="car-discount">Desconto
+                                <br>
+                                <span>{{dataCar.carDiscount}}</span>
+                            </div>
+                            <div ng-show="dataCar.rentalAgency == 'hertz';"
+                                 class="rental-agency hertz"> empresa locadora
+                            </div>
+                            <div ng-show="dataCar.rentalAgency == 'budget';"
+                                 class="rental-agency budget"> empresa locadora
+                            </div>
+                            <img ng-src="../images/{{dataCar.image}}">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 show-car-data">
+                            <div ng-show="dataCar.favorite;"
+                                 ng-click="favorite($event.currentTarget)";
+                                 class="make-favorite"> favorito
+                            </div>
+                            <div ng-show="!dataCar.favorite;"
+                                 ng-click="favorite($event.currentTarget)";
+                                 class="make-favorite not-make-favorite"> favorito
+                            </div>
+                            <h4 class="oswald"> {{dataCar.name}} </h4>
+                            <p> código da taxa: <span> {{dataCar.taxCode}} </span></p>
+                            <p> {{dataCar.availableCars}} </p>
+                            <ul>
+                                <li ng-repeat="moreData in dataCar.moreData;"> - {{moreData}}</li>
+                            </ul>
+
+                            <button ng-show="htmlDetails;"
+                                    ng-click="htmlDetails = false;"
+                                    type="button"
+                                    class="btn btn-link"> Fechar detalhes
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <button ng-show="!htmlDetails;"
+                                    ng-click="htmlDetails = true;"
+                                    type="button"
+                                    class="btn btn-link"> Ver detalhes
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+                        </div>
+                    </div>
+                    <div ng-show="htmlDetails;" class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 details">
+                            <div class="triangle">
+                                <div class="inner-triangle"></div>
+                            </div>
+                            <p class="black"> {{dataCar.details}} </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 features">
+                            <ul>
+                                <li ng-show="dataCar.features.numberDoors != '';"
+                                    class="number-doors">
+                                    {{dataCar.features.numberDoors}}
+                                </li>
+
+                                <li ng-show="dataCar.features.capacity != '';"
+                                    class="capacity">
+                                    {{dataCar.features.capacity}}
+                                </li>
+
+                                <li ng-show="dataCar.features.trunk != '';"
+                                    class="trunk">
+                                    {{dataCar.features.trunk}}
+                                </li>
+
+                                <li ng-show="dataCar.features.air != '';"
+                                    class="air">
+                                    {{dataCar.features.air}}
+                                </li>
+
+                                <li ng-show="dataCar.features.gearChange != '';"
+                                    class="gear-change">
+                                    {{dataCar.features.gearChange}}
+                                </li>
+
+                                <li ng-show="dataCar.features.steeringWheel != '';"
+                                    class="steering-wheel">
+                                    {{dataCar.features.steeringWheel}}
+                                </li>
+
+                                <li ng-show="dataCar.features.windowType != '';"
+                                    class="window-type">
+                                    {{dataCar.features.windowType}}
+                                </li>
+
+                                <li ng-show="dataCar.features.carMusic != '';"
+                                    class="car-music">
+                                    {{dataCar.features.carMusic}}
+                                </li>
+
+                                <li ng-show="dataCar.features.carAudio != '';"
+                                    class="car-radio">
+                                    {{dataCar.features.carAudio}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 yellow">
+                    <div class="triangle">
+                        <div class="inner-triangle"></div>
+                    </div>
+                    <h4 class="oswald"> Total da locação </h4>
+                    <p ng-show="dataCar.discountPrice;"
+                       class="strike"><span>de R$ {{dataCar.price}}</span></p>
+                    <p ng-show="!dataCar.discountPrice;"><span> &nbsp; </span></p>
+
+
+                    <p ng-show="dataCar.currency == 1" class="promo-price"> por <strong> R$ <span> {{(dataCar.discountPrice) ? (dataCar.discountPrice) : (dataCar.price)}} </span></strong>
+                        <br>
+                        <strong ng-show="dataCar.numberInstallments != '';"> em até {{dataCar.numberInstallments}}x </strong>
+                        <strong ng-show="dataCar.numberInstallments == '';"> &nbsp; </strong></p>
+                    <p ng-show="dataCar.currency == 2" class="promo-price"> por <strong> US$ <span> {{(dataCar.discountPrice) ? (dataCar.discountPrice) : (dataCar.price)}} </span></strong>
+                        <br>
+                        <strong ng-show="dataCar.numberInstallments != '';"> em até {{dataCar.numberInstallments}}x </strong>
+                        <strong ng-show="dataCar.numberInstallments == '';"> &nbsp; </strong></p>
+
+
+                    <button type="button" class="btn btn-default"> Alugar</button>
+                    <p class="tax-included"> Taxas inclusas </p>
+                </div>
+            </div>
+
+            <div ng-show="(data.length) == 0;" class="row padding-top-50">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <p>O resultado da busca não retornou dados para os locais selecionados.</p>
+                </div>
+            </div>
+
+            <div ng-show="(data.length) > 0;" class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pagination">
+                    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="..." next-text="..." first-text="&lt;" last-text="&gt;"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
