@@ -1,0 +1,227 @@
+<div ng-repeat="message in messageInfo.messages">
+    <div class="alert alert-dismissible" ng-class="messageInfo.class">
+        <button type="button" class="close" data-dismiss="alert"> ×</button>
+        <strong> <span ng-bind="message.description">teste</span> </strong>
+    </div>
+</div>
+<div class="reality form" ng-controller="realityFormCtrl">
+    <form ng-submit="submitData();">
+        <input type="hidden" id="id" ng-model="form.id">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="name">Título</label>
+                    <input type="text"
+                           class="form-control"
+                           id="name"
+                           ng-model="form.name"
+                           placeholder="título"
+                           oninvalid="this.setCustomValidity('informe o título.');"
+                           oninput="setCustomValidity('');"
+                           required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea class="form-control"
+                              maxlength="100"
+                              id="description"
+                              ng-model="form.description"
+                              rows="2"
+                              placeholder="descrição"
+                              oninvalid="this.setCustomValidity('informe a descrição.');"
+                              oninput="setCustomValidity('');"
+                              required></textarea>
+                    <span class="help-block">{{100 - form.description.length}} dígitos restantes.</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="value">Valor</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">R$</div>
+                        <input type="number"
+                               class="form-control"
+                               id="value"
+                               ng-model="form.value"
+                               placeholder="valor"
+                               oninvalid="this.setCustomValidity('informe o valor.');"
+                               oninput="setCustomValidity('');"
+                               required>
+                        <div class="input-group-addon">,00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="phoneNumber">Telefone de contato</label>
+                    <input type="text"
+                           class="form-control"
+                           id="phoneNumber"
+                           ng-model="form.phoneNumber"
+                           placeholder="número de telefone"
+                           ui-mask="(99) 99999999?9"
+                           ui-mask-placeholder
+                           ui-mask-placeholder-char=" "
+                           model-view-value="true"
+                           oninvalid="this.setCustomValidity('informe o telefone de contato.');"
+                           oninput="setCustomValidity('');"
+                           required>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 radios-inline">
+                <p>Tipo de imóvel</p>
+                <div class="radio">
+                    <label for="type1">
+                        <input type="radio"
+                               name="type"
+                               id="type1"
+                               ng-model="form.type"
+                               value="Appartment"
+                               ng-checked="true">
+                        Apartamento
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="type2">
+                        <input type="radio"
+                               name="type"
+                               id="type2"
+                               ng-model="form.type"
+                               value="Edifice">
+                        Casa
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="street">Logradouro</label>
+                    <input type="text"
+                           class="form-control"
+                           id="street"
+                           ng-model="form.street"
+                           placeholder="nome do logradouro"
+                           oninvalid="this.setCustomValidity('informe o logradouro.');"
+                           oninput="setCustomValidity('');"
+                           required>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="streetNumber">Número</label>
+                    <input type="number"
+                           class="form-control"
+                           id="streetNumber"
+                           ng-model="form.streetNumber"
+                           placeholder="número"
+                           oninvalid="this.setCustomValidity('informe o número.');"
+                           oninput="setCustomValidity('');"
+                           required>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="district">Bairro</label>
+                    <input type="text"
+                           class="form-control"
+                           id="district"
+                           ng-model="form.district"
+                           placeholder="bairro"
+                           oninvalid="this.setCustomValidity('informe o bairro.');"
+                           oninput="setCustomValidity('');"
+                           required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="city">Cidade</label>
+                    <input type="text"
+                           class="form-control"
+                           id="city"
+                           ng-model="form.city"
+                           placeholder="cidade"
+                           oninvalid="this.setCustomValidity('informe a cidade.');"
+                           oninput="setCustomValidity('');"
+                           required>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="brState">Estado</label>
+                    <select ng-model="form.brState"
+                            id="brState"
+                            class="form-control"
+                            oninvalid="this.setCustomValidity('escolha uma opção para o estado.');"
+                            oninput="setCustomValidity('');"
+                            required>
+                        <option value="" selected>-</option>
+                        <option ng-repeat="braState in braStates" value="{{braState.id}}">{{braState.description}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <div class="form-group text-left">
+                    <label for="image1">Imagem de exibição 1</label>
+                    <input type="file"
+                           id="image1"
+                           ng-model="form.image[0]"
+                           oninvalid="this.setCustomValidity('escolha uma imagem para enviar.');"
+                           onchange="setCustomValidity(''); angular.element(this).scope().setFileUpload(this);"
+                           accept="image/*"
+                           data-file-index="0"
+                           required>
+                </div>
+                <img id="output0" class="imageOutput">
+                <input type="text"
+                       class="form-control"
+                       id="imgDesc1"
+                       ng-model="form.imgDesc[0]"
+                       placeholder="descrição da imagem 1"
+                       oninvalid="this.setCustomValidity('informe a descrição da imagem 1.');"
+                       oninput="setCustomValidity('');"
+                       required>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <div class="form-group text-left">
+                    <label for="image2">Imagem de exibição 2</label>
+                    <input type="file"
+                           id="image2"
+                           ng-model="form.image[1]"
+                           oninvalid="this.setCustomValidity('escolha uma imagem para enviar.');"
+                           onchange="setCustomValidity(''); angular.element(this).scope().setFileUpload(this);"
+                           accept="image/*"
+                           data-file-index="1"
+                           required>
+                </div>
+                <img id="output1" class="imageOutput">
+                <input type="text"
+                       class="form-control"
+                       id="imgDesc2"
+                       ng-model="form.imgDesc[1]"
+                       placeholder="descrição da imagem 2"
+                       oninvalid="this.setCustomValidity('informe a descrição da imagem 2.');"
+                       oninput="setCustomValidity('');"
+                       required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                <button type="submit" class="btn btn-lg btn-success">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

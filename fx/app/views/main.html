@@ -1,0 +1,38 @@
+<div class="reality" ng-repeat="reality in data">
+    <h3 ng-bind="reality.name"></h3>
+    <div class="main-content">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 image-container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li ng-class='{active:$first}' data-target="#myCarousel" data-slide-to="{{$index}}"
+                            ng-repeat="image in reality.images"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div ng-class='{active:$first}' class="item" ng-repeat="image in reality.images">
+                            <img ng-src="{{image.url}}" alt="image.desc">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 description">
+                <p ng-bind="reality.description"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 realty-data">
+                <p><label>Tipo do imóvel: </label>
+                    <span ng-show="reality.type == 'Appartment'" ng-bind="'Apartamento'"></span>
+                    <span ng-show="reality.type == 'Edifice'" ng-bind="'Casa'"></span></p>
+                <p><label>Endereço: </label><span ng-bind="reality.place[0].address"></span></p>
+                <p><label>Preço: </label><span ng-bind="'R$ ' + reality.value + ',00'"></span></p>
+                <p><label>Contato: </label><span ng-bind="reality.contact"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row sub-content">
+    <p class="text-right"><a class="btn btn-lg btn-link" ng-href="#!/register">Cadastre seu imóvel</a></p>
+</div>
+
+
